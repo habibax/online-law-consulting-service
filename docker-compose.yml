@@ -1,0 +1,29 @@
+version: "3.3"
+
+services:
+  db:
+    image: mysql:8.0
+    volumes:
+      - ./grant.sql:/docker-entrypoint-initdb.d/grant.sql
+      - lcs_db:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: lcs-admin
+      MYSQL_DATABASE: lcs
+      MYSQL_USER: lcs
+      MYSQL_PASSWORD: lcs
+
+  api:
+    build:
+      context: ./
+    ports:
+    - 8000:8000
+    env_file:
+    - example.env
+    volumes:
+      - "./src:/src"
+    depends_on:
+      - db
+
+volumes:
+  lcs_db:
