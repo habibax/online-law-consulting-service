@@ -10,7 +10,6 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
-from pathlib import Path
 
 import os
 import environ
@@ -46,6 +45,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'acc',
 ]
 
 MIDDLEWARE = [
@@ -88,6 +89,11 @@ DATABASES = {
         "PASSWORD": env("DATABASE_PASSWORD"),
         "HOST": env("DATABASE_HOST"),
         "PORT": env("DATABASE_PORT"),
+        # "NAME": "lcs",
+        # "USER": "lcs",
+        # "PASSWORD": "lcs-admin",
+        # "HOST": "db",
+        # "PORT": "3306",
         "OPTIONS": {"charset": "utf8mb4", "use_unicode": True},
     }
 }
@@ -144,7 +150,7 @@ REST_FRAMEWORK = dict(
     ),
 )
 
-# AUTH_USER_MODEL = "acc.User"
+AUTH_USER_MODEL = "acc.User"
 
 #Logging setup
 LOGGING = {

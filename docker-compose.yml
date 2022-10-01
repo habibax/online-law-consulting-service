@@ -21,7 +21,7 @@ services:
     env_file:
     - example.env
     volumes:
-      - "./src:/src"
+      - "./LCS:/LCS"
     depends_on:
       - db
 
