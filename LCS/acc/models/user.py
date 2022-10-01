@@ -51,20 +51,14 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_readonly = models.BooleanField(default=False)
     email = models.EmailField(null=False, unique=True)
     password = models.CharField(null=False, max_length=255)
-    reset_password_token = models.CharField(unique=True, max_length=255, null=True, blank=True)
-    reset_password_sent_at = models.DateTimeField(null=True, blank=True)
     remember_created_at = models.DateTimeField(null=True, blank=True)
     created_at = models.DateTimeField(null=False, auto_now_add=True)
     updated_at = models.DateTimeField(null=False, auto_now_add=True)
-    confirmation_token = models.CharField(max_length=255, null=True, blank=True)
-    confirmed_at = models.DateTimeField(null=True, blank=True)
-    confirmation_sent_at = models.DateTimeField(null=True, blank=True)
-    unconfirmed_email = models.EmailField(null=True, blank=True)
+    
 
     class Meta:
         indexes = [
             models.Index(fields=["email"]),
-            models.Index(fields=["reset_password_token"]),
         ]
         app_label = "acc"
         db_table = "User"
