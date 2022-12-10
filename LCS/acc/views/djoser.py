@@ -11,6 +11,8 @@ from rest_framework.response import Response
 
 from acc.models import User
 
+from django.contrib.auth.tokens import default_token_generator
+from djoser import utils as djoser_utils
 
 
 
@@ -65,6 +67,9 @@ class CustomDjoserViewSet(UserViewSet):
         user = serializer.save()
         user_object=User.objects.get(email=user.email)
         user_object.set_password(user.password)
+        uid = djoser_utils.encode_uid(user_object.pk)
+        token = default_token_generator.make_token(user_object)
+        user_object.is_active=True
         user_object.save()
         signals.user_registered.send(
             sender=self.__class__, user=user, request=self.request

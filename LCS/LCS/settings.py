@@ -147,6 +147,11 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+DJOSER = {
+    "SEND_ACTIVATION_EMAIL": False,
+    "SERIALIZERS": {},
+}
+
 REST_FRAMEWORK = dict(
     DEFAULT_PERMISSION_CLASSES=("rest_framework.permissions.IsAuthenticated",),
     DEFAULT_FILTER_BACKENDS=("django_filters.rest_framework.DjangoFilterBackend", "rest_framework.filters.OrderingFilter"),
@@ -157,7 +162,9 @@ REST_FRAMEWORK = dict(
 )
 
 AUTH_USER_MODEL = "acc.User"
-
+CSRF_COOKIE_SECURE = False
+CSRF_COOKIE_HTTPONLY = True
+SESSION_COOKIE_SECURE = False
 #Logging setup
 LOGGING = {
     'version': 1,

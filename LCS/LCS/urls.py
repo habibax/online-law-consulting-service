@@ -32,9 +32,9 @@ schema_view = get_schema_view(
 )
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
-    path(r'^auth/', include('djoser.urls')),
+    path("django-admin", admin.site.urls),
+    path("account/", include("acc.urls")),
     path(
             "swagger/",
             schema_view.with_ui("swagger", cache_timeout=0),
