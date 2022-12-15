@@ -42,6 +42,7 @@ urlpatterns = [
         ),
     path("case/", include("case.urls")),
     path("admin/", include("admin.urls")),
+    path("lawyer/", include("lawyer.urls")),
     
 
 ]
