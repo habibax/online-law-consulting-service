@@ -41,6 +41,8 @@ urlpatterns = [
             name="schema-swagger-ui",
         ),
     path("case/", include("case.urls")),
+    path("admin/", include("admin.urls")),
+    
 
 ]
 urlpatterns += staticfiles_urlpatterns()

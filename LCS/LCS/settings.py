@@ -55,6 +55,8 @@ INSTALLED_APPS = [
     'djoser',
     'drf_yasg',
     "case.apps.CaseConfig",
+    "admin.apps.AdminConfig",
+    
 
     
 ]
@@ -99,11 +101,6 @@ DATABASES = {
         "PASSWORD": env("DATABASE_PASSWORD"),
         "HOST": env("DATABASE_HOST"),
         "PORT": env("DATABASE_PORT"),
-        # "NAME": "lcs",
-        # "USER": "lcs",
-        # "PASSWORD": "lcs-admin",
-        # "HOST": "db",
-        # "PORT": "3306",
         "OPTIONS": {"charset": "utf8mb4", "use_unicode": True},
     }
 }
