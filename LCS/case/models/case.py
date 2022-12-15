@@ -5,7 +5,7 @@ from django.utils.timezone import now
 from common.common_models import BaseModel
 
 
-class Stake(BaseModel):
+class Case(BaseModel):
     class State(models.TextChoices):
         PENDING_ADMIN = ("pending_admin",)
         PENDING_LAWYER = ("pending_lawyer",)
@@ -15,8 +15,8 @@ class Stake(BaseModel):
     state = models.CharField(
         max_length=20, default=State.PENDING_ADMIN, null=False, choices=State.choices
     )
-    user = models.ForeignKey("acc.User", on_delete=models.CASCADE, related_name="case")
-    lawyer = models.ForeignKey("acc.User", on_delete=models.CASCADE, related_name="case") 
+    user = models.ForeignKey("acc.User", on_delete=models.CASCADE, related_name="case_user")
+    lawyer = models.ForeignKey("acc.User", on_delete=models.CASCADE, related_name="case_lawyer") 
 
     title = models.CharField(max_length=225, null=False)
     content = models.TextField()  

@@ -54,6 +54,9 @@ INSTALLED_APPS = [
     'acc',
     'djoser',
     'drf_yasg',
+    "case.apps.CaseConfig",
+
+    
 ]
 
 MIDDLEWARE = [
