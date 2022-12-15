@@ -16,7 +16,7 @@ class Case(BaseModel):
         max_length=20, default=State.PENDING_ADMIN, null=False, choices=State.choices
     )
     user = models.ForeignKey("acc.User", on_delete=models.CASCADE, related_name="case_user")
-    lawyer = models.ForeignKey("acc.User", on_delete=models.CASCADE, related_name="case_lawyer") 
+    lawyer = models.ForeignKey("acc.User", on_delete=models.CASCADE, related_name="case_lawyer",null=True) 
 
     title = models.CharField(max_length=225, null=False)
     content = models.TextField()  
