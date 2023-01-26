@@ -180,7 +180,8 @@ LOGGING = {
         'applog': {
             'level': 'DEBUG',
             'class': 'logging.handlers.RotatingFileHandler',
-            'filename': BASE_DIR  +'/logs/applog/appLog.log',
+            # 'filename': BASE_DIR  +'/logs/applog/appLog.log',
+            'filename': '/logs/applog/appLog.log',
             'maxBytes': 1024*1024*15,  # 15MB
             'backupCount': 10,
             'formatter': 'simple',
@@ -188,7 +189,8 @@ LOGGING = {
         'errors': {
             'level': 'ERROR',
             'class': 'logging.handlers.RotatingFileHandler',
-            'filename': BASE_DIR  +'/logs/errors/errors.log',
+            # 'filename': BASE_DIR  +'/logs/errors/errors.log',
+            'filename': '/logs/errors/errors.log',
             'maxBytes': 1024*1024*15,  # 15MB
             'backupCount': 10,
             'formatter': 'simple'
