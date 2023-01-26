@@ -22,5 +22,7 @@ class Case(BaseModel):
     content = models.TextField()  
     issue_date = models.DateField(null=False, default=now)
 
+    def __str__(self) -> str:
+        return self.title()
     
 

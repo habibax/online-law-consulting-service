@@ -9,3 +9,5 @@ class AdminProfile(BaseModel):
     user = models.OneToOneField(
         "acc.User", on_delete=models.CASCADE, related_name="admin_profile"
     )
+    def __str__(self) -> str:
+        return self.user.email

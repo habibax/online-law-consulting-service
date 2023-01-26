@@ -13,3 +13,5 @@ class LawyerProfile(BaseModel):
     user = models.OneToOneField(
         "acc.User", on_delete=models.CASCADE, related_name="lawyer_profile"
     )
+    def __str__(self) -> str:
+        return self.user.email
